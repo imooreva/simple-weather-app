@@ -1,0 +1,18 @@
+{
+  "name": "wu-app",
+  "version": "1.0.0",
+  "main": "wx.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node wx-server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "express": "^4.14.0",
+    "hbs": "^4.0.1",
+    "request": "^2.79.0"
+  }
+}

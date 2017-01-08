@@ -1,0 +1,11 @@
+body {
+    background: #222222;
+    color: #CCCCCC;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.125em;
+}
+
+i.wi{
+    font-size: 5rem;
+    padding: 0.5rem 0 1.25rem 0;
+}
