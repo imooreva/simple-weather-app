@@ -7,17 +7,15 @@ const port = process.env.PORT || 3000 //used for heroku
 const API_KEY = '89c9f9e4a294d471';
 
 var app = express();
-app.set('view engine', 'hbs');
-app.use(express.static(__dirname + '/public'));
-
 var currentData, currentLocation, wxIcon, wxObj, errorObj;
 
+app.set('view engine', 'hbs');
+app.use(express.static(__dirname + '/public'));
 app.listen(port, () => console.log(`Server is up on port ${port}`));
-
 app.get('/', (req,res) => res.status(200).render('index.hbs'));
 
 app.get('/wx/:id', (req,res) => {
-    var id = req.params.id;
+    let id = req.params.id;
     request({
         url: `https://api.wunderground.com/api/${API_KEY}/conditions/q/${id}.json`,
         json: true
@@ -39,7 +37,7 @@ app.get('/wx/:id', (req,res) => {
 });
 
 app.get('/wxm/:id', (req,res) => {
-    var id = req.params.id;
+    let id = req.params.id;
     request({
         url: `https://api.wunderground.com/api/${API_KEY}/conditions/q/${id}.json`,
         json: true
@@ -59,7 +57,3 @@ app.get('/wxm/:id', (req,res) => {
         });
     });
 });
-
-//app.use((req, res) => {
-//    res.status(404).send('error');
-//});

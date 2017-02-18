@@ -1,12 +1,16 @@
 {
   "name": "wu-app",
   "version": "1.0.0",
-  "main": "wx.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node wx-server.js"
+    "start": "node server.js"
   },
-  "author": "",
+  "author": "Ian Moore",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imooreva/simple-weather-app"
+  },
   "license": "ISC",
   "description": "",
   "dependencies": {

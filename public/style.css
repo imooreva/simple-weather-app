@@ -1,8 +1,12 @@
 body {
     background: #222222;
-    color: #CCCCCC;
+    color: #BAFCC0;
     font-family: 'Raleway', sans-serif;
-    font-size: 1.125em;
+    font-size: 1.0em;
+}
+
+p {
+    color: #CCC;
 }
 
 i.wi{
