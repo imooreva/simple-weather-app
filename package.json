@@ -1,9 +1,9 @@
 {
-  "name": "wu-app",
+  "name": "Simple Weather App",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test server/*.test.js",
     "start": "node server.js"
   },
   "author": "Ian Moore",
@@ -18,5 +18,9 @@
     "express": "^4.14.0",
     "hbs": "^4.0.1",
     "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.2.0"
   }
 }

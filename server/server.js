@@ -1,17 +1,20 @@
-const wxf = require('./wx-functions.js');
 const express = require('express');
 const hbs = require('hbs');
+const path = require('path');
 const request = require('request');
 
 const port = process.env.PORT || 3000 //used for heroku
-const API_KEY = '89c9f9e4a294d471';
+const publicPath = path.join(__dirname, '../public');
+const {API_KEY} = require('./api_key.js');
 
 var app = express();
+var {wxDetails, getWxIcon} = require('./wx-functions.js');
 var currentData, currentLocation, wxIcon, wxObj, errorObj;
 
 app.set('view engine', 'hbs');
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(publicPath));
 app.listen(port, () => console.log(`Server is up on port ${port}`));
+
 app.get('/', (req,res) => res.status(200).render('index.hbs'));
 
 app.get('/wx/:id', (req,res) => {
@@ -27,8 +30,8 @@ app.get('/wx/:id', (req,res) => {
             });
         };
         currentData = body.current_observation;
-        wxIcon = wxf.getWxIcon(currentData.icon, currentData.UV);
-        wxObj = wxf.wxDetails(currentData);
+        wxIcon = getWxIcon(currentData.icon, currentData.UV);
+        wxObj = wxDetails(currentData);
         return res.status(200).render('wx.hbs', {
             wxObj,
             wxIcon
@@ -49,8 +52,8 @@ app.get('/wxm/:id', (req,res) => {
             });
         };
         currentData = body.current_observation;
-        wxIcon = wxf.getWxIcon(currentData.icon, currentData.UV);
-        wxObj = wxf.wxDetails(currentData);
+        wxIcon = getWxIcon(currentData.icon, currentData.UV);
+        wxObj = wxDetails(currentData);
         return res.status(200).render('wxm.hbs', {
             wxObj,
             wxIcon,
