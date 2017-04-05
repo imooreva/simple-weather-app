@@ -6,15 +6,15 @@
         <link href="/style.css" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
-    <title>Weather for {{wxObj.currentLocation}}</title>
+    <title>Weather for {{wxObject.currentLocation}}</title>
     <body>
-        {{wxObj.currentLocation}}<br />
+        {{wxObject.currentLocation}}<br />
         <i class="{{wxIcon}}"></i><br />
-        {{wxObj.currentWx}}<br />
-        Temperature: {{wxObj.currentTempC}}°C<br />
-        Feels like: {{wxObj.currentFeelsTempC}}°C<br />
-        Wind: {{wxObj.currentWindK}}, {{wxObj.currentWindGustK}}<br />
-        <a href="{{wxObj.wxMoreDetails}}" target="_blank" />More details and forecast</a><br />
+        {{wxObject.currentWx}}<br />
+        Temperature: {{wxObject.currentTempC}}°C<br />
+        Feels like: {{wxObject.currentFeelsTempC}}°C<br />
+        Wind: {{wxObject.currentWindK}}, {{wxObject.currentWindGustK}}<br />
+        <a href="{{wxObject.wxMoreDetails}}" target="_blank" />More details and forecast</a><br />
         <a href="/">Return to About Page</a>
     </body>
 </html>

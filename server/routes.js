@@ -11,7 +11,7 @@ var {wxDetails, getWxIcon} = require('./wx-functions.js');
 var router = express.Router();
 
 //declare variables for later use
-var currentData, currentLocation, wxIcon, wxObj, errorObj;
+var currentData, currentLocation, wxIcon, wxObject, errorObject;
 
 //main page
 router.route('/').get((req,res) => res.status(200).render('index.hbs'));
@@ -26,18 +26,18 @@ router.route('/wx/:id').get((req,res) => {
     }, (error, response, body) => {
         //render error page if there's a problem with the response
         if (body.response.error) {
-            errorObj = body.response.error;
+            errorObject = body.response.error;
             return res.status(404).render('E404.hbs', {
-                errorObj
+                errorObject
             });
         };
         //assign JSON data to variable and pass variable to external functions to handle it
         currentData = body.current_observation;
         wxIcon = getWxIcon(currentData.icon, currentData.UV);
-        wxObj = wxDetails(currentData);
+        wxObject = wxDetails(currentData);
         //render results to client's browser using returned object, CSS icon and template page
         return res.status(200).render('wx.hbs', {
-            wxObj,
+            wxObject,
             wxIcon
         });
     });
@@ -54,18 +54,18 @@ router.route('/wxm/:id').get((req,res) => {
     }, (error, response, body) => {
         //render error page if there's a problem with the response
         if (body.response.error) {
-            errorObj = body.response.error;
+            errorObject = body.response.error;
             return res.status(404).render('E404.hbs', {
-                errorObj
+                errorObject
             });
         };
         //assign JSON data to variable and pass variable to external functions to handle it
         currentData = body.current_observation;
         wxIcon = getWxIcon(currentData.icon, currentData.UV);
-        wxObj = wxDetails(currentData);
+        wxObject = wxDetails(currentData);
         //render results to client's browser using returned object, CSS icon and template page
         return res.status(200).render('wxm.hbs', {
-            wxObj,
+            wxObject,
             wxIcon,
         });
     });

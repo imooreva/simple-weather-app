@@ -9,4 +9,6 @@ var app = express();
 app.set('view engine', 'hbs');
 app.use(express.static(publicPath));
 app.use(require('./routes.js'));
-app.listen(port, () => console.log(`Server is up on port ${port}`));
+if (!module.parent) { app.listen(port, () => console.log(`Started up on port ${port}`)) };
+
+module.exports = {app};
