@@ -1,3 +1,4 @@
+//returns an object with properties containing extracted JSON data
 var wxDetails = (d) => {
     return {
         currentLocation: d.display_location.full,
@@ -14,6 +15,7 @@ var wxDetails = (d) => {
     };
 };
 
+//use switch case to determine the CSS weather icon to use based on what JSON data shows
 var getWxIcon = (wxicon, uv) => {
   switch (wxicon) {
     case 'chanceflurries':
@@ -30,11 +32,12 @@ var getWxIcon = (wxicon, uv) => {
 
     case 'chancetstorms':
       return 'wi wi-thunderstorm';
-
+          
+    //Clear conditions are tricky to handle as they may occur anytime, so we will
+    //use UV index to determine if we should use the sun icon or the moon icon.
     case 'clear':
       if (uv > 0) {
-        return 'wi wi-day-sunny';
-  
+        return 'wi wi-day-sunny';  
       } else if (uv == 0 || !uv) {
         return 'wi wi-night-clear';  
       }
