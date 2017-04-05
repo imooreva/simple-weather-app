@@ -1,5 +1,5 @@
 {
-  "name": "simple-weather-app",
+  "name": "Simple Weather App",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
