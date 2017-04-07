@@ -10,11 +10,11 @@ describe('getWxIcon test', ()=> {
     });
     
     //function use: getWxIcon(conditions, UV Index)
-    it('should return \'wi wi-night-clear\'', () => {
+    it('should return \'wi wi-night-clear\' when condition is clear and UV index is 0', () => {
         expect(getWxIcon('clear', 0)).toBe('wi wi-night-clear');
     });
     
-    it('should return \'wi wi-day-sunny\'', () => {
+    it('should return \'wi wi-day-sunny\' when condition is clear and UV index is 3', () => {
         expect(getWxIcon('clear', 3)).toBe('wi wi-day-sunny');
     });
 });
@@ -28,7 +28,7 @@ describe('HTTP status code tests', ()=> {
             .end(done);
     });
     
-    it('should return status code 200 when valid location passed in URL', (done) => {
+    it('should return status code 404 when invalid location passed in URL', (done) => {
         request(app.listen())
             .get('/wx/a!z$^0000')
             .expect(404)

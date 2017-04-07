@@ -16,7 +16,7 @@ var currentData, currentLocation, wxIcon, wxObject, errorObject;
 //main page
 router.route('/').get((req,res) => res.status(200).render('index.hbs'));
 
-//route renders imperial unit JSON data from wunderground's API
+//requests imperial unit JSON data from wunderground's API and renders data to page
 router.route('/wx/:id').get((req,res) => {
     //extract location ID from URL
     let id = req.params.id;
@@ -44,7 +44,7 @@ router.route('/wx/:id').get((req,res) => {
 });
 
 
-//route renders metric unit JSON data from wunderground's API
+//requests metric unit JSON data from wunderground's API and renders data to page
 router.route('/wxm/:id').get((req,res) => {
     //extract location ID from URL
     let id = req.params.id;
