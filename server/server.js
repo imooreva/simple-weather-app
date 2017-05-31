@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 
 //declare constants and express app
-const publicPath = path.join(__dirname, '../public');
+const publicPath = path.join(__dirname, '.././public');
 const port = process.env.PORT || 3000 //used for heroku
 var app = express();
 

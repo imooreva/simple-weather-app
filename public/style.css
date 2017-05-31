@@ -5,11 +5,49 @@ body {
     font-size: 1.0rem;
 }
 
+a {
+    color: #00BFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 h1, h2 {
     color: #BAFCC0;
 }
 
-i.wi{
+i.wi {
     font-size: 5rem;
-    padding: 0.5rem 0 1.25rem 0;
+    padding: 0.75rem 0 1.25rem 0;
+}
+
+#footer {
+    margin-top: 2rem;
+}
+
+#hr1 {
+    border: 0.09375rem solid #BAFCC0;
+    margin-top: 2rem;
+}
+
+
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: 0.9375rem;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+    }
+
+    #hr1, #footer {
+        margin-top: 1.25rem
+    }
 }
