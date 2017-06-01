@@ -5,13 +5,15 @@
         <link href="/style.css" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
-    <title>Query results for {{wxObject.q}}</title>
+    <title>Query results for {{wxQueryResults.q}}</title>
     <body>
-       <p>Your query returned multiple results:</p>
-        <ul>
-            {{#each wxObject.results}}
-            <li><a href="{{this.zmw}}">{{this.city}}, {{this.state}} {{this.country_name}}</a></li>
-            {{/each}}
-        </ul>
+        <div>
+            <p>Your query returned multiple results:</p>
+            <ul>
+                {{#each wxQueryResults.results}}
+                <li><a href="{{this.zmw}}">{{this.city}}, {{this.state}} {{this.country_name}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
     </body>
 </html>

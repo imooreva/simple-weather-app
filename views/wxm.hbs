@@ -8,13 +8,15 @@
     </head>
     <title>Weather for {{wxObject.currentLocation}}</title>
     <body>
-        {{wxObject.currentLocation}}<br />
-        <i class="{{wxIcon}}"></i><br />
-        {{wxObject.currentWx}}<br />
-        Temperature: {{wxObject.currentTempC}}°C<br />
-        Feels like: {{wxObject.currentFeelsTempC}}°C<br />
-        Wind: {{wxObject.currentWindK}}, {{wxObject.currentWindGustK}}<br />
-        <a href="{{wxObject.wxMoreDetails}}" target="_blank" />More Details &amp; Forecast</a><br />
-        <a href="/">Return to About Page</a>
+        <div class="container">
+            {{wxObject.currentLocation}}<br />
+            <i class="{{wxIcon}}"></i><br />
+            {{wxObject.currentWx}}<br />
+            Temperature: {{wxObject.currentTempC}}°C<br />
+            Feels like: {{wxObject.currentFeelsTempC}}°C<br />
+            Wind: {{wxObject.currentWindK}}, {{wxObject.currentWindGustK}}<br />
+            <a href="{{wxObject.wxMoreDetails}}" target="_blank" />More Details &amp; Forecast</a><br />
+            <a href="/">Return to About Page</a>
+        </div>
     </body>
 </html>

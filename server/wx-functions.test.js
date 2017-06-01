@@ -5,7 +5,7 @@ var {wxDetails, getWxIcon} = require('./wx-functions.js');
 
 describe('getWxIcon test', ()=> {
     
-    it('should return \'wi wi-day-sunny-overcast\'', () => {
+    it('should return \'wi wi-day-sunny-overcast\' when current condition is \'mostlysunny\'', () => {
         expect(getWxIcon('mostlysunny', 5)).toBe('wi wi-day-sunny-overcast');
     });
     
