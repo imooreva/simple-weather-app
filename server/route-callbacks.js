@@ -48,4 +48,25 @@ var wxRoute = (req,res) => {
     });
 };
 
-module.exports = wxRoute;
+
+//fetch coordinates using IP address and redirect to user-specified route
+var getGeo = (req,res) => {    
+    let rte = req.route.path.slice(2);
+    request({
+        url: 'http://ip-api.com/json/?fields=226',
+        json: true
+    }, (error, response, body) => {
+        if (error || body.message) {
+            errorObject = {
+                type: 'geolocation failed',
+                description: 'Unable to determine location.'
+            };
+            return res.status(404).render('E404.hbs', {
+                errorObject
+            });
+        };
+        return res.redirect(`/${rte}/${body.lat},${body.lon}`);    
+    });
+};
+
+module.exports = {wxRoute, getGeo};

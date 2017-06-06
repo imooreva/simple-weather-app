@@ -1,5 +1,5 @@
-const expect = require('expect');
-const request = require('supertest');
+var expect = require('expect');
+var request = require('supertest');
 var {app} = require('./server.js');
 var {wxDetails, getWxIcon} = require('./wx-functions.js');
 
@@ -32,6 +32,13 @@ describe('HTTP status code tests', ()=> {
         request(app.listen())
             .get('/wx/a!z$^0000')
             .expect(404)
+            .end(done);
+    });
+    
+    it('should return status code 302 when geolocation API response is received and app redirects', (done) => {
+        request(app.listen())
+            .get('/gwx')
+            .expect(302)
             .end(done);
     });
 });

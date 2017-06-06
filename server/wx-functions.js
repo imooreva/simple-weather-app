@@ -1,17 +1,24 @@
 //returns an object with properties containing extracted JSON data
-var wxDetails = (data) => {
+var wxDetails = data => {
+    let currentTempString = (data.temp_f >= data.feelslike_f) ? data.temp_f : `${data.temp_f}°F : feels like ${data.feelslike_f}`;
+    let currentTempStringC = (data.temp_c >= data.feelslike_c) ? data.temp_c : `${data.temp_c}°C : feels like ${data.feelslike_c}`;
+    let windDirection = (data.wind_dir.length > 3) ? data.wind_dir.slice(0,1) : data.wind_dir;
+    let currentWind = (data.wind_mph > 0) ? `${windDirection} ${data.wind_mph} Mph` : 'Calm';
+    let currentWindGust = (data.wind_gust_mph > data.wind_mph) ? `${data.wind_gust_mph} Mph gusts` : 'No gusts';
+    let currentWindK = (data.wind_kph > 0) ? `${windDirection} ${data.wind_kph} Kph` : 'Calm';
+    let currentWindGustK = (data.wind_gust_kph > data.wind_kph) ? `${data.wind_gust_kph} Kph gusts` : 'No gusts';
     return {
         currentLocation: data.display_location.full,
         currentWx: data.weather,
-        currentTemp: data.temp_f,
-        currentTempC: data.temp_c,
-        currentFeelsTemp: data.feelslike_f,
-        currentFeelsTempC: data.feelslike_c,
-        currentWind: (data.wind_mph > 0) ? `${data.wind_mph} Mph ${data.wind_dir}` : 'Calm',
-        currentWindGust: (data.wind_gust_mph > data.wind_mph) ? `gusts ${data.wind_gust_mph} Mph` : 'no gusting',
-        currentWindK: (data.wind_kph > 0) ? `${data.wind_kph} Kph ${data.wind_dir}` : 'Calm',
-        currentWindGustK: (data.wind_gust_kph > data.wind_kph) ? `gusts ${data.wind_gust_kph} Kph` : 'no gusting',
-        wxMoreDetails: data.forecast_url        
+        currentTempString,
+        currentTempStringC,
+        currentWind,
+        currentWindGust,
+        currentWindK,
+        currentWindGustK,
+        currentHumidity: data.relative_humidity,
+        wxMoreDetails: data.forecast_url,
+        lastUpdated: data.observation_time.replace(/^(Last Updated on )/i,'As of ')
     };
 };
 

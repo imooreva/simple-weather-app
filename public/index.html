@@ -10,15 +10,19 @@
     <body>
         <h1>Simple Weather App</h1>
         <p>Fetch current weather data by passing a string in the URL.</p>
-        <p>City names, ZIP codes and airport codes are accepted.</p>
-        <h2>Usage Examples:</h2>
-        <p>Chicago, imperial units<br>
-            <span class="link-example">https://wx.glitch.me/wx/Chicago,IL</span>
+        <p>Use place names, ZIP codes, airport codes, or coordinates.</p>
+        <h2>Usage Examples</h2>
+        <p>Chicago, imperial units:<br>
+            <span class="link-example">GET <a href="/wx/Chicago,IL">/wx/Chicago,IL</a></span>
         </p>
-        <p>Chicago, metric units<br>
-            <span class="link-example">https://wx.glitch.me/wxm/Chicago,IL</span>
+        <p>Chicago, metric units:<br>
+            <span class="link-example">GET <a href="/wxm/Chicago,IL">/wxm/Chicago,IL</a></span>
+        </p>
+        <p>Weather based on geolocation (uses external API):<br>
+            <span class="link-example">GET <a href="/gwx">/gwx</a></span><br>
+            <span class="link-example">GET <a href="/gwxm">/gwxm</a></span>
         </p>
         <hr id="hr1">
-        <p id="footer">Author's source code on <a href="https://github.com/imooreva/simple-weather-app" target="_blank">Github</a>.</p>
+        <p id="footer">Source code on <a href="https://github.com/imooreva/simple-weather-app" target="_blank">Github</a>.</p>
     </body>
 </html>
