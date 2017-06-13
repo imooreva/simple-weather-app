@@ -16,9 +16,9 @@
             <i class="wi wi-wind-direction current-measurement"></i> {{wxObject.currentWind}}<br/>
             <i class="wi wi-strong-wind current-measurement"></i> {{wxObject.currentWindGust}}<br/>
             <i class="wi wi-barometer current-measurement"></i> {{wxObject.currentHumidity}} humidity<br/>
-            <span class="last-update-time">{{wxObject.lastUpdated}}</span><br/>
-            <a href="{{wxObject.wxMoreDetails}}" target="_blank" />More Details &amp; Forecast</a><br/>
-            <a href="/">Return to About Page</a>
+            <span class="last-update-time">{{wxObject.lastUpdated}}</span><br/>            
+            <a href="/" class="bottom-link">Return to About Page</a><br/>
+            <a href="{{wxObject.wxMoreDetails}}" target="_blank" class="bottom-link" />More Info &amp; Forecast</a>
         </div>
     </body>
 </html>

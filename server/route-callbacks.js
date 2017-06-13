@@ -3,7 +3,6 @@ const {API_KEY} = require('./api_key.js');
 
 //require modules and external functions
 var hbs = require('hbs');
-var express = require('express');
 var request = require('request');
 var {wxDetails, getWxIcon} = require('./wx-functions.js');
 
@@ -14,7 +13,8 @@ var wxQueryResults = {};
 
 var wxRoute = (req,res) => {
     //path determines what template page to render
-    let templatePage = req.route.path.split('/')[1] + '.hbs';
+    let rt = req.route.path.split('/')[1];
+    let templatePage = `${rt}.hbs`;
     //extract location ID from URL
     let id = req.params.id;
     request({
@@ -32,6 +32,8 @@ var wxRoute = (req,res) => {
         if (body.response.results) {
             wxQueryResults.q = id;
             wxQueryResults.results = body.response.results;
+            //generate a link for each location; response.results.zmw only works for U.S. stations when passed into URL apparently
+            wxQueryResults.results.forEach((i) => i.apphref = `/${rt}/zmw:${i.zmw}`);
             return res.status(200).render('query-results.hbs', {
                 wxQueryResults
             });
@@ -48,12 +50,16 @@ var wxRoute = (req,res) => {
     });
 };
 
-
-//fetch coordinates using IP address and redirect to user-specified route
-var getGeo = (req,res) => {    
-    let rte = req.route.path.slice(2);
+var getGeo = (req,res) => {
+    //get user's IP address    
+    //line below sourced from http://stackoverflow.com/questions/8107856/how-to-determine-a-users-ip-address-in-node/19524949#19524949
+    let IpAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
+    IpAddress = IpAddress.split(',')[0];
+    let rt = req.route.path.slice(2);
+    
+    //use IP for geolocation and redirect to specified route with coordinates
     request({
-        url: 'http://ip-api.com/json/?fields=226',
+        url: `http://ip-api.com/json/${IpAddress}?fields=226`,
         json: true
     }, (error, response, body) => {
         if (error || body.message) {
@@ -65,7 +71,7 @@ var getGeo = (req,res) => {
                 errorObject
             });
         };
-        return res.redirect(`/${rte}/${body.lat},${body.lon}`);    
+        return res.redirect(`/${rt}/${body.lat},${body.lon}`);    
     });
 };
 

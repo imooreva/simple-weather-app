@@ -31,6 +31,10 @@ i.current-measurement {
     margin-top: 2rem;
 }
 
+.bottom-link {
+    line-height: 1.5rem;
+}
+
 .container {
     position: fixed;
     left: 50%;
@@ -45,6 +49,7 @@ i.current-measurement {
 
 .last-update-time {
     font-size: 0.75rem;
+    line-height: 0.75rem;
 }
 
 .link-example {
@@ -79,16 +84,12 @@ i.current-measurement {
     }
     
     i.current-measurement {
-        line-height: 1.375rem;
+        line-height: 1.5rem;
     }
     
     .current-wx-icon {
         font-size: 5rem;
         padding: 1.0rem 0 1.25rem 0;
-    }
-    
-    .last-update-time {
-        font-size: 0.625rem;
     }
 
     #hr1, #footer {

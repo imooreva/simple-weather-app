@@ -11,7 +11,7 @@
             <p>Your query returned multiple results:</p>
             <ul>
                 {{#each wxQueryResults.results}}
-                <li><a href="{{this.zmw}}">{{this.city}}, {{this.state}} {{this.country_name}}</a></li>
+                <li><a href={{this.apphref}}>{{this.city}}, {{this.state}} {{this.country_name}}</a></li>
                 {{/each}}
             </ul>
         </div>
