@@ -17,4 +17,7 @@ router.route('/wxm/:id').get(wxRoute);
 router.route('/gwx').get(getGeo);
 router.route('/gwxm').get(getGeo);
 
+//handle console error by sending 'No Content' 204 status
+router.route('/favicon.ico').get((req, res) => res.sendStatus(204));
+
 module.exports = router;

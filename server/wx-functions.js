@@ -7,6 +7,7 @@ var wxDetails = data => {
     let currentWindGust = (data.wind_gust_mph > data.wind_mph) ? `${data.wind_gust_mph} Mph gusts` : 'No gusts';
     let currentWindK = (data.wind_kph > 0) ? `${windDirection} ${data.wind_kph} Kph` : 'Calm';
     let currentWindGustK = (data.wind_gust_kph > data.wind_kph) ? `${data.wind_gust_kph} Kph gusts` : 'No gusts';
+    let currentHumidity = (parseInt(data.relative_humidity) > 0) ? `${parseInt(data.relative_humidity)}% humidity` : 'humidity N/A';
     return {
         currentLocation: data.display_location.full,
         currentWx: data.weather,
@@ -16,7 +17,7 @@ var wxDetails = data => {
         currentWindGust,
         currentWindK,
         currentWindGustK,
-        currentHumidity: data.relative_humidity,
+        currentHumidity,
         wxMoreDetails: data.forecast_url,
         lastUpdated: data.observation_time.replace(/^(Last Updated on )/i,'As of ')
     };

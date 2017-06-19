@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="/style.css" rel="stylesheet" type="text/css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet" type="text/css">
+        <link href="/style.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <title>Weather for {{wxObject.currentLocation}}</title>
     <body>
         <div class="container">
-            {{wxObject.currentLocation}}<br />
-            <i class="current-wx-icon {{wxIcon}}"></i><br/>
-            {{wxObject.currentWx}}<br/>
-            <i class="wi wi-thermometer current-measurement"></i> {{wxObject.currentTempString}}&deg;F<br/>            
-            <i class="wi wi-wind-direction current-measurement"></i> {{wxObject.currentWind}}<br/>
-            <i class="wi wi-strong-wind current-measurement"></i> {{wxObject.currentWindGust}}<br/>
-            <i class="wi wi-barometer current-measurement"></i> {{wxObject.currentHumidity}} humidity<br/>
-            <span class="last-update-time">{{wxObject.lastUpdated}}</span><br/>            
-            <a href="/" class="bottom-link">Return to About Page</a><br/>
+            {{wxObject.currentLocation}}<br>
+            <i class="current-wx-icon {{wxIcon}}"></i><br>
+            {{wxObject.currentWx}}<br>
+            <i class="wi wi-thermometer current-measurement"></i> {{wxObject.currentTempString}}&deg;F<br>            
+            <i class="wi wi-wind-direction current-measurement"></i> {{wxObject.currentWind}}<br>
+            <i class="wi wi-strong-wind current-measurement"></i> {{wxObject.currentWindGust}}<br>
+            <i class="wi wi-barometer current-measurement"></i> {{wxObject.currentHumidity}}<br>
+            <span class="last-update-time">{{wxObject.lastUpdated}}</span><br>            
+            <a href="/" class="bottom-link">Return to About Page</a><br>
             <a href="{{wxObject.wxMoreDetails}}" target="_blank" class="bottom-link" />More Info &amp; Forecast</a>
         </div>
     </body>

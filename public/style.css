@@ -6,8 +6,12 @@ body {
 }
 
 a {
-    color: #00BFFF;
+    color: #98DEF5;
     text-decoration: none;
+}
+
+a:focus {
+    outline: 0.1875rem dashed #00BFFF;
 }
 
 a:hover {
@@ -15,19 +19,19 @@ a:hover {
 }
 
 h1, h2 {
-    color: #BAFCC0;
+    color: #FFE19A;
 }
 
 i.current-measurement {
     line-height: 1.875rem;
 }
 
-#footer {
+#gitlink {
     margin-top: 2rem;
 }
 
 #hr1 {
-    border: 0.09375rem solid #BAFCC0;
+    border: 0.09375rem solid #FFE19A;
     margin-top: 2rem;
 }
 
@@ -57,11 +61,11 @@ i.current-measurement {
     font-family: monospace;
     font-size: 1.375rem;
     line-height: 2.0rem;
-    padding: 0.1875rem;
+    padding: 0.1875rem 0.25rem;
 }
 
 .link-example>a {
-    color: #00BFFF;
+    color: #98DEF5;
     text-decoration: none;
 }
 
@@ -92,7 +96,7 @@ i.current-measurement {
         padding: 1.0rem 0 1.25rem 0;
     }
 
-    #hr1, #footer {
+    #hr1, #gitlink {
         margin-top: 1.25rem
     }
     
