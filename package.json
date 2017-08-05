@@ -2,7 +2,7 @@
   "name": "simple-weather-app",
   "version": "1.0.0",
   "engines": {
-    "node": "6.9.2"
+    "node": "6.11.1"
   },
   "main": "server/server.js",
   "scripts": {
@@ -17,6 +17,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^0.16.2",
     "express": "^4.15.3",
     "hbs": "^4.0.1",
     "request": "^2.81.0"
